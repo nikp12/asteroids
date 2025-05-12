@@ -3,6 +3,11 @@ from constants import *
 from player import *
 from circleshape import *
 
+updatable = pygame.sprite.Group()
+updatable.add(Player)
+drawable = pygame.sprite.Group()
+drawable.add(Player)
+
 def main():
     pygame.init()
     clock = pygame.time.Clock()
@@ -15,8 +20,8 @@ def main():
             if event.type == pygame.QUIT:
                 return
         pygame.Surface.fill(screen, color="black")
-        player.update(dt)
-        player.draw(screen)
+        updatables.update(dt)
+        drawables.draw(screen)
         pygame.display.flip()
         dt = clock.tick(60) / 1000.0
         
