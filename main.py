@@ -39,6 +39,10 @@ def main():
             if collide == True:
                 print("Game over!")
                 quit()
+            for shot in shots:
+                asteroid_shot = asteroid.detect_collision(shot)
+                if asteroid_shot == True:
+                    asteroid.split()
         dt = clock.tick(60) / 1000.0
         
 
